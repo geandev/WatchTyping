@@ -1,6 +1,8 @@
-﻿namespace WatchTyping.Core.Events
+﻿using MediatR;
+
+namespace WatchTyping.Core.Events
 {
-    public interface IEvent
+    public interface IEvent : INotification
     {
     }
 }

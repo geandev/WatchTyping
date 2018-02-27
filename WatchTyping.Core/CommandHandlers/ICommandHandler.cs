@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using System.Windows.Input;
+using WatchTyping.Core.Commands;
 
 namespace WatchTyping.Core.CommandHandlers
 {

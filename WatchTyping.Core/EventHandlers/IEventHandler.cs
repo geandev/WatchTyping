@@ -1,11 +1,9 @@
-﻿using System.Threading.Tasks;
-using WatchTyping.Core.Events;
+﻿using MediatR;
 
 namespace WatchTyping.Core.EventHandlers
 {
-    public interface IEventHandler<TEvent>
-        where TEvent : IEvent
+    public interface IEventHandler<in TEvent> : INotificationHandler<TEvent>
+        where TEvent : INotification
     {
-        Task HandleAsync(TEvent @event);
     }
 }
