@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatchTyping.Core", "WatchTyping.Core\WatchTyping.Core.csproj", "{628A6DBC-8FF8-4241-9C2F-757D44B1B800}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchTyping.Infra", "WatchTyping.Infra\WatchTyping.Infra.csproj", "{8A043D0A-3C41-4B2D-BB55-15FF8DB5A5ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatchTyping.Infra", "WatchTyping.Infra\WatchTyping.Infra.csproj", "{8A043D0A-3C41-4B2D-BB55-15FF8DB5A5ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatchTyping.Api", "WatchTyping.Api\WatchTyping.Api.csproj", "{F755C8F4-41C7-4EBE-B2C6-A2268B467CEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8A043D0A-3C41-4B2D-BB55-15FF8DB5A5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A043D0A-3C41-4B2D-BB55-15FF8DB5A5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A043D0A-3C41-4B2D-BB55-15FF8DB5A5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F755C8F4-41C7-4EBE-B2C6-A2268B467CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F755C8F4-41C7-4EBE-B2C6-A2268B467CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F755C8F4-41C7-4EBE-B2C6-A2268B467CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F755C8F4-41C7-4EBE-B2C6-A2268B467CEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

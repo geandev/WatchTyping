@@ -2,5 +2,6 @@
 {
     public class UserWritingTextCommand : ICommand
     {
+        public string Message { get; set; }
     }
 }

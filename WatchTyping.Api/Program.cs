@@ -12,6 +12,9 @@ namespace WatchTyping.Api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://localhost:5000")
+                .UseKestrel()
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
     }

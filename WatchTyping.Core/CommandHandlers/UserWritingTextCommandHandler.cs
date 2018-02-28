@@ -17,7 +17,7 @@ namespace WatchTyping.Core.CommandHandlers
 
         public Task ExecuteAsync(UserWritingTextCommand command)
         {
-            return _bus.RaiseEventAsync(new UserWritingTextEvent { Id = Guid.NewGuid(), Message = "Test" });
+            return _bus.RaiseEventAsync(new UserWritingTextEvent { Id = Guid.NewGuid(), Message = command.Message });
         }
     }
 }
