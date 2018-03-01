@@ -1,0 +1,79 @@
+html	{
+	background: #f8f4e8 url(data:image/jpeg;base64,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) left top repeat;
+}
+#searchbox6{
+    width:400px;
+    height:50px;
+    background:#f2f2f2;
+    padding: 6px 10px;
+    margin: 50px auto;
+    border:1px solid #b5b5b5;
+    border-radius:5px;
+    box-shadow:inset 0 0 3px rgba(255,255,255,0.8), inset 0 2px 2px rgba(255,255,255,1), 0 5px 0 #989898, 0 13px 0 #dfdede;
+}
+
+#search6{
+    float:left;
+    width:230px;
+    height:40px;
+    padding: 0px 5px;
+    margin-top: 5px;
+    margin-left: 3px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    box-shadow: 
+        inset 0 5px 0 #ccc, 
+        inset 0 6px 0 #989898, 
+        inset 0 13px 0 #dfdede;    
+    font-family: 'Helvetica Neue',Helvetica, sans-serif;
+    font-size:34px;
+    color:#555;
+    line-height:1;
+    -webkit-text-stroke: 0.3px #989898;
+}
+
+#search6:focus {
+    outline:0;
+}
+
+.searchbtn6{
+    float:left;
+    font-family: 'Helvetica Neue',Helvetica, sans-serif;
+    cursor:pointer;
+    width:130px;
+    padding:8px 6px;
+    margin-left:20px;
+    background-color: #f8b838;
+    color: rgba(134,79,11,0.8);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid #99631d;
+    border-radius:5px;
+    text-shadow:0 1px 2px rgba(255,255,255,0.7), 0 -1px 0 rgba(64m 38, 5, 0.9);
+    box-shadow: inset 0 0 3px rgba(255,255,255,0.6), inset 0 1px 2px rgba(255,255,255,0.7), 0 5px 0 #b8882a, 0 6px 0 #593a11, 0 13px 0 #ccc;
+}
+
+.searchbtn6:hover, searchbtn6:focus {
+    background: #ffd842;
+    box-shadow: inset 0 0 3px rgba(255,255,255,0.9), inset 0 2px 1px rgba(255,255,76,0.8), 0 5px 0 #d8a031, 0 6px 0 #593a11, 0 13px 0 #ccc;
+}
+
+.searchbtn6:active{
+    background:#f6a000;
+    position:relative;
+    top:5px;
+    border:1px solid #702d00;
+    box-shadow:inset 0 0 3px rgba(255,255,255,0.6), inset 0 1px 2px rgba(255,255,255,0.7), 0 3px 0 #b8882a, 0 4px 0 #593a11, 0 8px 0 #ccc;
+}
+
+.byline p{
+  text-align:center;
+  color:#555;
+  font: bold 18px Arial, Helvetica, Sans-serif;
+  text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.byline p a{
+  color:#000;
+  text-decoration:none;
+}
