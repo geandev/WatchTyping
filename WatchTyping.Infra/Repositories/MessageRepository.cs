@@ -17,7 +17,7 @@ namespace WatchTyping.Infra.Repositories
 
         public Task SaveMessageAsync(Message message)
         {
-            return _firebaseClient.Child("message").PostAsync(message.ToJson());
+            return _firebaseClient.Child(nameof(Message)).PostAsync(message.ToJson());
         }
     }
 }
