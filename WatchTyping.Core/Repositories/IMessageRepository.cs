@@ -5,6 +5,7 @@ namespace WatchTyping.Core.Repositories
 {
     public interface IMessageRepository
     {
-        Task SaveMessageAsync(Message message);
+        Task UpdateMessageAsync(string code, Message message);
+        Task<string> CreateMessageAsync();
     }
 }

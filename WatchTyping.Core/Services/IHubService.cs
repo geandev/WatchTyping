@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
+using WatchTyping.Core.Events;
 
 namespace WatchTyping.Core.Services
 {
     public interface IHubService
     {
-        Task SendAsync(string message);
+        Task NotifyUserCreateNewPaperAsync(UserCreateNewPaperEvent @event);
+        Task NotifyUserCreateNewPaperAsync(UserCreateNewPaperEvent @event);
     }
 }

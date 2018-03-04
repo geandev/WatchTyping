@@ -1,4 +1,6 @@
 ﻿using Firebase.Database;
+using Firebase.Database.Query;
+using System;
 using System.Threading.Tasks;
 using WatchTyping.Core.Models;
 using WatchTyping.Core.Repositories;
@@ -12,12 +14,19 @@ namespace WatchTyping.Infra.Repositories
 
         public MessageRepository()
         {
-            _firebaseClient = new FirebaseClient(@"https://watchtyping.firebaseio.com/");
+            _firebaseClient = new FirebaseClient($"https://watchtyping.firebaseio.com/");
         }
 
-        public Task SaveMessageAsync(Message message)
+        public Task<string> CreateMessageAsync()
         {
-            return _firebaseClient.Child(nameof(Message)).PostAsync(message.ToJson());
+            return _firebaseClient.Child(nameof(Message))
+                .PostAsync(DateTime.Now)
+                .ContinueWith(t => t.Result.Key);
+        }
+
+        public Task UpdateMessageAsync(string code, Message message)
+        {
+            return _firebaseClient.Child(nameof(Message)).Child(code).PostAsync(message.ToJson());
         }
     }
 }

@@ -19,7 +19,6 @@ namespace WatchTyping.Infra.Test.Repositories
         [TestMethod]
         public void TestSaveMessage()
         {
-            _sut.SaveMessageAsync(Message.CreateNew(Guid.NewGuid(), "Gean Alexandre")).Wait();
         }
     }
 }

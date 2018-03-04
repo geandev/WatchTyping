@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
+using WatchTyping.Core.Events;
 using WatchTyping.Core.Services;
 using WatchTyping.Infra.Hubs;
 
@@ -14,9 +15,15 @@ namespace WatchTyping.Infra.Services
             _hub = hub;
         }
 
-        public Task SendAsync(string message)
+        public async Task NotifyUserCreateNewPaperAsync(UserCreateNewPaperEvent @event)
         {
-            return _hub.Clients.All.SendAsync("send", message);
+            await _hub.Groups.AddAsync(@event.ConnectionId, @event.GroupId);
+            await _hub.Clients.Group(@event.GroupId).SendAsync(nameof(UserCreateNewPaperEvent), @event.GroupId);
+        }
+
+        public async Task NotifyUserWritingTextAsync(UserWritingTextEvent @event)
+        {
+            await _hub.Clients.Group(@event.GroupId).SendAsync(nameof(UserWritingTextEvent), @event.Message);
         }
     }
 }

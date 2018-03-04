@@ -4,15 +4,15 @@ namespace WatchTyping.Core.Models
 {
     public class Message
     {
-        public Guid Id { get; private set; }
+        public DateTime DateReceived { get; private set; }
         public string Text { get; private set; }
 
-        private Message(Guid id, string text)
+        public Message(DateTime dateReceived, string text)
         {
-            Id = id;
+            DateReceived = dateReceived;
             Text = text;
         }
 
-        public static Message CreateNew(Guid id, string text) => new Message(id, text);
+        public static Message CreateNew(DateTime dateReceived, string text) => new Message(dateReceived, text);
     }
 }

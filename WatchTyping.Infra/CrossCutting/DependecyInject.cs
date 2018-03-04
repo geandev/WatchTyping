@@ -5,6 +5,8 @@ using WatchTyping.Infra.Bus;
 using MediatR;
 using WatchTyping.Core.Services;
 using WatchTyping.Infra.Services;
+using WatchTyping.Core.Repositories;
+using WatchTyping.Infra.Repositories;
 
 namespace WatchTyping.Infra.CrossCutting
 {
@@ -15,7 +17,10 @@ namespace WatchTyping.Infra.CrossCutting
             services.AddSingleton<IBus, MediatorBus>();
             services.AddSingleton<IHubService, HubService>();
 
+            services.AddScoped<IMessageRepository, MessageRepository>();
+
             services.AddScoped<IUserWritingTextCommandHandler, UserWritingTextCommandHandler>();
+            services.AddScoped<IUserCreateNewPaperCommandHandler, UserCreateNewPaperCommandHandler>();
 
             services.AddSignalR();
             services.AddMediatR();

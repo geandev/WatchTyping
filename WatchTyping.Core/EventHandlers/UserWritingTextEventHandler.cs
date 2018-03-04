@@ -16,7 +16,7 @@ namespace WatchTyping.Core.EventHandlers
 
         public Task Handle(UserWritingTextEvent message, CancellationToken cancellationToken)
         {
-            return _hubService.SendAsync(message.Message);
+            return _hubService.NotifyUserWritingTextAsync(message);
         }
     }
 }
