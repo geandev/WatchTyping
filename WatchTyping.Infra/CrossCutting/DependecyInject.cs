@@ -21,6 +21,7 @@ namespace WatchTyping.Infra.CrossCutting
 
             services.AddScoped<IUserWritingTextCommandHandler, UserWritingTextCommandHandler>();
             services.AddScoped<IUserCreateNewPaperCommandHandler, UserCreateNewPaperCommandHandler>();
+            services.AddScoped<IUserJoinGroupCommandHandler, UserJoinGroupCommandHandler>();
 
             services.AddSignalR();
             services.AddMediatR();

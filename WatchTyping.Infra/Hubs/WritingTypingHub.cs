@@ -9,19 +9,22 @@ namespace WatchTyping.Infra.Hubs
     {
         private readonly IUserCreateNewPaperCommandHandler _userCreateNewPaperCommandHandler;
         private readonly IUserWritingTextCommandHandler _userWritingTextCommandHandler;
+        private readonly IUserJoinGroupCommandHandler _userJoinGroupCommandHandler;
 
         public WritingTypingHub(
             IUserCreateNewPaperCommandHandler userCreateNewPaperCommandHandler,
-            IUserWritingTextCommandHandler userWritingTextCommandHandler
+            IUserWritingTextCommandHandler userWritingTextCommandHandler,
+            IUserJoinGroupCommandHandler userJoinGroupCommand
             )
         {
             _userCreateNewPaperCommandHandler = userCreateNewPaperCommandHandler;
             _userWritingTextCommandHandler = userWritingTextCommandHandler;
+            _userJoinGroupCommandHandler = userJoinGroupCommand;
         }
 
-        public Task JoinGroupAsync()
+        public async Task JoinGroupAsync(string groupId)
         {
-            return Task.CompletedTask;
+            await _userJoinGroupCommandHandler.ExecuteAsync(new UserJoinGroupCommand { ConnectionId = Context.ConnectionId, GroupId = groupId });
         }
 
         public async Task CreateNewPaperAsync()
