@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using WatchTyping.Infra.CrossCutting;
 using WatchTyping.Infra.Hubs;
@@ -9,6 +10,8 @@ namespace WatchTyping.Infra
     {
         public static void AddWatchTyping(this IServiceCollection services)
         {
+            services.AddSignalR();
+            services.AddMediatR();
             DependecyInject.Resolve(services);
         }
 

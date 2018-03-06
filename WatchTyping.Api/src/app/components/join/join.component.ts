@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-join',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinComponent implements OnInit {
 
+  @Output() onJoin = new EventEmitter<string>();
+  @Input() code: string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  join() {
+    this.onJoin.emit(this.code)
+  }
 }

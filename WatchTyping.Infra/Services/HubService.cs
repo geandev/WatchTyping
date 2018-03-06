@@ -18,18 +18,18 @@ namespace WatchTyping.Infra.Services
         public async Task NotifyUserCreateNewPaperAsync(UserCreateNewPaperEvent @event)
         {
             await _hub.Groups.AddAsync(@event.ConnectionId, @event.GroupId);
-            await _hub.Clients.Group(@event.GroupId).SendAsync(nameof(UserCreateNewPaperEvent), @event.GroupId);
+            await _hub.Clients.Group(@event.GroupId).InvokeAsync(nameof(UserCreateNewPaperEvent), @event.GroupId);
         }
 
         public async Task NotifyUserJoinGroupAsync(UserJoinGroupEvent @event)
         {
             await _hub.Groups.AddAsync(@event.ConnectionId, @event.GroupId);
-            await _hub.Clients.Group(@event.GroupId).SendAsync(nameof(UserJoinGroupEvent), @event.GroupId);
+            await _hub.Clients.Group(@event.GroupId).InvokeAsync(nameof(UserJoinGroupEvent), @event.GroupId);
         }
 
         public async Task NotifyUserWritingTextAsync(UserWritingTextEvent @event)
         {
-            await _hub.Clients.Group(@event.GroupId).SendAsync(nameof(UserWritingTextEvent), @event.Message);
+            await _hub.Clients.Group(@event.GroupId).InvokeAsync(nameof(UserWritingTextEvent), @event.Message);
         }
     }
 }

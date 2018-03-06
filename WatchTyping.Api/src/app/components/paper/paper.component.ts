@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-paper',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaperComponent implements OnInit {
 
+  @Output() onTyping = new EventEmitter<string>();
+  @Input() text: string = ""
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  typing() {
+    this.onTyping.emit(this.text);
   }
 
 }

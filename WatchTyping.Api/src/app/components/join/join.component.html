@@ -4,13 +4,13 @@
 </div>
 <div id="searchbox6">
   <form>
-    <input type="text" id="search6">
-    <input type="submit" class="searchbtn6" value="Join">
+    <input type="text" [(ngModel)]="code" name="code" id="search6">
+    <input type="button" (click)="join()" class="searchbtn6" value="Join">
   </form>
 </div>
 
-<div class="byline">
+<!-- <div class="byline">
   <p>click here for create a new paper
     <a routerLink="/paper">Create new paper</a>
   </p>
-</div>
+</div> -->
