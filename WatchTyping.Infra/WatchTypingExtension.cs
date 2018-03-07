@@ -10,8 +10,6 @@ namespace WatchTyping.Infra
     {
         public static void AddWatchTyping(this IServiceCollection services)
         {
-            services.AddSignalR();
-            services.AddMediatR();
             DependecyInject.Resolve(services);
         }
 

@@ -29,7 +29,9 @@ namespace WatchTyping.Infra.Services
 
         public async Task NotifyUserWritingTextAsync(UserWritingTextEvent @event)
         {
+            await _hub.Groups.RemoveAsync(@event.ConnectionId, @event.GroupId);
             await _hub.Clients.Group(@event.GroupId).InvokeAsync(nameof(UserWritingTextEvent), @event.Message);
+            await _hub.Groups.AddAsync(@event.ConnectionId, @event.GroupId);
         }
     }
 }

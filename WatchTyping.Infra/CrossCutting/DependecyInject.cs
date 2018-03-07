@@ -6,6 +6,7 @@ using WatchTyping.Core.Services;
 using WatchTyping.Infra.Services;
 using WatchTyping.Core.Repositories;
 using WatchTyping.Infra.Repositories;
+using MediatR;
 
 namespace WatchTyping.Infra.CrossCutting
 {
@@ -21,6 +22,9 @@ namespace WatchTyping.Infra.CrossCutting
             services.AddScoped<IUserWritingTextCommandHandler, UserWritingTextCommandHandler>();
             services.AddScoped<IUserCreateNewPaperCommandHandler, UserCreateNewPaperCommandHandler>();
             services.AddScoped<IUserJoinGroupCommandHandler, UserJoinGroupCommandHandler>();
+
+            services.AddSignalR();
+            services.AddMediatR();
         }
 
         public static void Resolve(IServiceCollection serviceCollection) => new DependecyInject(serviceCollection);

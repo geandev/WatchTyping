@@ -34,7 +34,7 @@ namespace WatchTyping.Infra.Hubs
 
         public async Task UpdateMessageAsync(string groupId, string message)
         {
-            await _userWritingTextCommandHandler.ExecuteAsync(new UserWritingTextCommand { GroupId = groupId, Message = message });
+            await _userWritingTextCommandHandler.ExecuteAsync(new UserWritingTextCommand { GroupId = groupId, Message = message, ConnectionId = Context.ConnectionId });
         }
     }
 }

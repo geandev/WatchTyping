@@ -9,6 +9,8 @@ import { HubConnection } from '@aspnet/signalr-client';
 export class AppComponent {
   title = 'app';
   hubConnection: HubConnection;
+  text = ''
+  code = ''
 
   ngOnInit() {
     this.hubConnection = new HubConnection('/watchtyping');
@@ -18,8 +20,18 @@ export class AppComponent {
     this.hubConnection
       .start()
       .then(() => {
-        this.hubConnection.invoke("UpdateMessageAsync", code, "Gean Alexandre")
+        this.code = code
+        this.hubConnection.invoke("JoinGroupAsync", code)
+        console.info("joined")
       })
       .catch(err => console.log('Error while establishing connection :('));
+
+    this.hubConnection.on("UserWritingTextEvent", data => {
+      this.text = data
+    })
+  }
+
+  typing(text) {
+    this.hubConnection.invoke("UpdateMessageAsync", this.code, text)
   }
 }
