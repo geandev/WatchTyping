@@ -24,7 +24,7 @@ namespace WatchTyping.Infra.Services
         public async Task NotifyUserJoinGroupAsync(UserJoinGroupEvent @event)
         {
             await _hub.Groups.AddAsync(@event.ConnectionId, @event.GroupId);
-            await _hub.Clients.Group(@event.GroupId).InvokeAsync(nameof(UserJoinGroupEvent), @event.GroupId);
+            await _hub.Clients.Client(@event.ConnectionId).InvokeAsync(nameof(UserJoinGroupEvent), @event.LastMessage);
         }
 
         public async Task NotifyUserWritingTextAsync(UserWritingTextEvent @event)

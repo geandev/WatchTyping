@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using WatchTyping.Core.Models;
 using WatchTyping.Core.Repositories;
 using WatchTyping.Infra.Ultilities;
+using System.Linq;
 
 namespace WatchTyping.Infra.Repositories
 {
@@ -22,6 +23,11 @@ namespace WatchTyping.Infra.Repositories
             return _firebaseClient.Child(nameof(Message))
                 .PostAsync(DateTime.Now)
                 .ContinueWith(t => t.Result.Key);
+        }
+
+        public async Task<Message> GetLastMessage(string code)
+        {
+            return await _firebaseClient.Child(nameof(Message)).Child(code).OrderByKey().LimitToLast(1).OnceAsync<Message>().ContinueWith(r => r.Result.FirstOrDefault()?.Object);
         }
 
         public Task UpdateMessageAsync(string code, Message message)

@@ -10,17 +10,12 @@ namespace WatchTyping.Api
     public static void AllowAllCors(this IServiceCollection services)
     {
       services.AddCors(options =>
-      {
         options.AddPolicy(CorsPolicyName,
             builder =>
-            {
               builder
-                          .AllowAnyMethod()
-                          .AllowAnyHeader()
-                          .WithOrigins("http://localhost:5000");
-            }
-        );
-      });
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .WithOrigins("http://localhost:5000")));
     }
 
     public static void UseAllowAllCors(this IApplicationBuilder app)
