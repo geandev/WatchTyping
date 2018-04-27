@@ -3,7 +3,6 @@ using WatchTyping.Core.Bus;
 using WatchTyping.Core.CommandHandlers;
 using WatchTyping.Infra.Bus;
 using WatchTyping.Core.Services;
-using WatchTyping.Infra.Services;
 using WatchTyping.Core.Repositories;
 using WatchTyping.Infra.Repositories;
 using MediatR;
@@ -15,7 +14,6 @@ namespace WatchTyping.Infra.CrossCutting
         private DependecyInject(IServiceCollection services)
         {
             services.AddSingleton<IBus, MediatorBus>();
-            services.AddSingleton<IHubService, HubService>();
 
             services.AddScoped<IMessageRepository, MessageRepository>();
 

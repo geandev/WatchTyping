@@ -19,7 +19,7 @@ namespace WatchTyping.Core.CommandHandlers
             _messageRepository = messageRepository;
         }
 
-        public Task ExecuteAsync(UserWritingTextCommand command)
+        public Task<UserWritingTextEvent> ExecuteAsync(UserWritingTextCommand command)
         {
             _messageRepository.UpdateMessageAsync(command.GroupId, Message.CreateNew(DateTime.Now, command.Message));
             return _bus.RaiseEventAsync(new UserWritingTextEvent { GroupId = command.GroupId, Message = command.Message, ConnectionId = command.ConnectionId });

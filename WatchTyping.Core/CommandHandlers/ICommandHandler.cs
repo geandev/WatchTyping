@@ -3,9 +3,9 @@ using WatchTyping.Core.Commands;
 
 namespace WatchTyping.Core.CommandHandlers
 {
-    public interface ICommandHandler<TCommand>
+    public interface ICommandHandler<TCommand, TResponse>
         where TCommand : ICommand
     {
-        Task ExecuteAsync(TCommand command);
+        Task<TResponse> ExecuteAsync(TCommand command);
     }
 }

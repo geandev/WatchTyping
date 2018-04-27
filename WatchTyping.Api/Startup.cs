@@ -7,7 +7,6 @@ using WatchTyping.Infra;
 namespace WatchTyping.Api
 {
   public class Startup
-
   {
     private const string CorsPolicyName = "AllowAllOrigins";
 

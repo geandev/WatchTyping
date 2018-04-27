@@ -5,18 +5,11 @@ using WatchTyping.Core.Services;
 
 namespace WatchTyping.Core.EventHandlers
 {
-    public class UserWritingTextEventHandler : IEventHandler<UserWritingTextEvent>
+    public class UserWritingTextEventHandler : IEventHandler<UserWritingTextEvent, UserWritingTextEvent>
     {
-        private readonly IHubService _hubService;
-
-        public UserWritingTextEventHandler(IHubService hubService)
+        public Task<UserWritingTextEvent> Handle(UserWritingTextEvent message, CancellationToken cancellationToken)
         {
-            _hubService = hubService;
-        }
-
-        public async Task Handle(UserWritingTextEvent message, CancellationToken cancellationToken)
-        {
-            await _hubService.NotifyUserWritingTextAsync(message);
+            return Task.FromResult(message);
         }
     }
 }

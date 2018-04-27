@@ -5,6 +5,6 @@ namespace WatchTyping.Core.Bus
 {
     public interface IBus
     {
-        Task RaiseEventAsync(IEvent @event);
+        Task<TResponse> RaiseEventAsync<TResponse>(IEvent<TResponse> @event);
     }
 }

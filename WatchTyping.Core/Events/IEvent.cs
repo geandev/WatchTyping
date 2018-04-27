@@ -2,7 +2,7 @@
 
 namespace WatchTyping.Core.Events
 {
-    public interface IEvent : INotification
+    public interface IEvent<TResponse> : IRequest<TResponse>
     {
     }
 }

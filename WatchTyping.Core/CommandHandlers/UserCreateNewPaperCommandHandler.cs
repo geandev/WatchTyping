@@ -20,10 +20,10 @@ namespace WatchTyping.Core.CommandHandlers
             _bus = bus;
         }
 
-        public async Task ExecuteAsync(UserCreateNewPaperCommand command)
+        public async Task<UserCreateNewPaperEvent> ExecuteAsync(UserCreateNewPaperCommand command)
         {
             var groupId = await _messageRepository.CreateMessageAsync();
-            await _bus.RaiseEventAsync(new UserCreateNewPaperEvent { ConnectionId = command.ConnectionId, GroupId = groupId });
+            return await _bus.RaiseEventAsync(new UserCreateNewPaperEvent { ConnectionId = command.ConnectionId, GroupId = groupId });
         }
     }
 }

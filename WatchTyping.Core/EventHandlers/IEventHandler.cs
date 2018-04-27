@@ -2,8 +2,8 @@
 
 namespace WatchTyping.Core.EventHandlers
 {
-    public interface IEventHandler<in TEvent> : INotificationHandler<TEvent>
-        where TEvent : INotification
+    public interface IEventHandler<TEvent, TReponse> : IRequestHandler<TEvent, TReponse>
+        where TEvent : IRequest<TReponse>
     {
     }
 }

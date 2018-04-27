@@ -2,7 +2,7 @@
 
 namespace WatchTyping.Core.Events
 {
-    public class UserJoinGroupEvent : IEvent
+    public class UserJoinGroupEvent : IEvent<UserJoinGroupEvent>
     {
         public string ConnectionId { get; set; }
         public string GroupId { get; set; }

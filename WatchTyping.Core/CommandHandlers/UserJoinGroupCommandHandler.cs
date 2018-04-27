@@ -20,10 +20,10 @@ namespace WatchTyping.Core.CommandHandlers
             _messageRepository = messageRepository;
         }
 
-        public async Task ExecuteAsync(UserJoinGroupCommand command)
+        public async Task<UserJoinGroupEvent> ExecuteAsync(UserJoinGroupCommand command)
         {
             var lastMessage = await _messageRepository.GetLastMessage(command.GroupId);
-            await _bus.RaiseEventAsync(new UserJoinGroupEvent { ConnectionId = command.ConnectionId, GroupId = command.GroupId, LastMessage = lastMessage });
+            return await _bus.RaiseEventAsync(new UserJoinGroupEvent { ConnectionId = command.ConnectionId, GroupId = command.GroupId, LastMessage = lastMessage });
         }
     }
 }

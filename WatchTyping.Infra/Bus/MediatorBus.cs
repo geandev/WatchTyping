@@ -14,9 +14,9 @@ namespace WatchTyping.Infra.Bus
             _mediator = mediator;
         }
 
-        public Task RaiseEventAsync(IEvent @event)
+        public Task<TResponse> RaiseEventAsync<TResponse>(IEvent<TResponse> @event)
         {
-            return _mediator.Publish(@event);
+            return _mediator.Send<TResponse>(@event);
         }
     }
 }

@@ -5,18 +5,11 @@ using WatchTyping.Core.Services;
 
 namespace WatchTyping.Core.EventHandlers
 {
-    public class UserCreateNewPaperEventHandler : IEventHandler<UserCreateNewPaperEvent>
+    public class UserCreateNewPaperEventHandler : IEventHandler<UserCreateNewPaperEvent, UserCreateNewPaperEvent>
     {
-        private readonly IHubService _hub;
-
-        public UserCreateNewPaperEventHandler(IHubService hub)
+        public Task<UserCreateNewPaperEvent> Handle(UserCreateNewPaperEvent notification, CancellationToken cancellationToken)
         {
-            _hub = hub;
-        }
-
-        public async Task Handle(UserCreateNewPaperEvent notification, CancellationToken cancellationToken)
-        {
-            await _hub.NotifyUserCreateNewPaperAsync(notification);
+            return Task.FromResult(notification);
         }
     }
 }
